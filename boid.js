@@ -84,7 +84,7 @@ class Boid {
 			if (this.position.y < this.size * 3) {
 				this.drawBoid(boidShape, this.position.x, this.position.y+height, this.velocity, this.size)
 			} else {
-			if (this.position.y > width - this.size * 3) {
+			if (this.position.y > height - this.size * 3) {
 				this.drawBoid(boidShape, this.position.x, this.position.y-height, this.velocity, this.size)
 				}
 			}
