@@ -64,9 +64,20 @@ class Boid {
 			noStroke()
 			let d = dist(this.position.x, this.position.y, light.position.x, light.position.y)
 			let color = 0
-			if (d < light.size){ color = this.colors}
-			fill(color);
-			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
+			if (d < light.size){
+				color = this.colors
+				let xoffset = (light.position.x - this.position.x)*0.1
+				let yoffset = (light.position.y - this.position.y)*0.1
+				fill(0);
+				this.drawBoid(boidShape, this.position.x - xoffset,
+										 this.position.y - yoffset,
+										 this.velocity, this.size*1.2);
+				fill(color)
+				this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
+			} else{
+				fill(0);
+				this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
+			}
 			if (this.position.x < this.size * 3) {
 				this.drawBoid(boidShape, this.position.x+width, this.position.y, this.velocity, this.size)
 			} else {
