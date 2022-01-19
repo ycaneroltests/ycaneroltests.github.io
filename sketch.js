@@ -50,6 +50,14 @@ light.lighton = !light.lighton;
 
 }
 
+function mouseWheel(event){
+	newLightSize = light.initialSize + event.delta;
+	if (newLightSize < 500 && newLightSize > 10 && mouseInCanvas()){
+	light.initialSize = newLightSize
+	}
+	return false
+}
+
 function toggleLightRandom(){
 	if (this.checked()){
 		lightMovesRandomly = true;
