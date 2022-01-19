@@ -3,6 +3,7 @@ let maxSpeed = 3;
 let minSpeed = 0.01;
 let boidShape = 'fish';
 let size = 6;
+// let fishFriendlyLight = false;
 
 class Boid {
 	constructor(){
@@ -50,7 +51,9 @@ class Boid {
 		this.acceleration.add(alignment)
 		this.acceleration.add(cohesion)
 		this.acceleration.add(avoidance)
-		this.acceleration.add(avoidLight)
+		if (!fishFriendlyLight){
+			this.acceleration.add(avoidLight)
+		}
 	}
 
 	isOffscreen(){ //Handling what happens at the edges

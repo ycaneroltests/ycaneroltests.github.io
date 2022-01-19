@@ -11,6 +11,9 @@ function setup() {
 	randomMovementCheckbox = createCheckbox('Random movement', false);
 	randomMovementCheckbox.changed(toggleLightRandom);
 
+	fishFriendlyLightCheckbox = createCheckbox('Fish friendly light', false);
+	fishFriendlyLightCheckbox.changed(toggleFishFriendlyLight);
+
 	boidShapeRadio = createRadio();
 	boidShapeRadio.option('fish');
 	boidShapeRadio.option('triangle');
@@ -69,5 +72,13 @@ function toggleLightRandom(){
 		light.lighton = true;
 	} else {
 lightMovesRandomly = false;
+	}
+}
+
+function toggleFishFriendlyLight(){
+	if (this.checked()){
+		fishFriendlyLight = true;
+	} else {
+		fishFriendlyLight = false;
 	}
 }

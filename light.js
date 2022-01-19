@@ -1,4 +1,5 @@
 let lightMovesRandomly = false;
+let fishFriendlyLight = false;
 
 
 class Light{
