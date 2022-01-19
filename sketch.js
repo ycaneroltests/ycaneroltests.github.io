@@ -7,6 +7,10 @@ function setup() {
 	for (let i=0; i<nboid; i++){
 	flock.push(new Boid());}
 	light = new Light();
+	
+	randomMovementCheckbox = createCheckbox('Random movement', false);
+	randomMovementCheckbox.changed(toggleLightRandom);
+
 }
 
 function draw() {
@@ -30,4 +34,13 @@ function mouseClicked(){
 function touches(){
 light.lighton = !light.lighton;
 
+}
+
+function toggleLightRandom(){
+	if (this.checked()){
+		lightMovesRandomly = true;
+		light.lighton = true;
+	} else {
+lightMovesRandomly = false;
+	}
 }

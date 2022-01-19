@@ -1,4 +1,5 @@
-lightMovesRandomly = false;
+let lightMovesRandomly = false;
+
 
 class Light{
 		constructor(){
@@ -12,7 +13,7 @@ class Light{
 			if (lightMovesRandomly){
 			this.position.x = noise(t) * width
 			this.position.y = noise(t+50) * height
-			t+=0.001;
+			t+=0.005;
 			} else {
 			this.position.x = mouseX
 			this.position.y = mouseY
