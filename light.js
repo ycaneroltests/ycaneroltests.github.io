@@ -3,7 +3,7 @@ let lightMovesRandomly = false;
 
 class Light{
 		constructor(){
-			this.position = createVector()
+			this.position = createVector(random(width), random(height))
 			this.initialSize = width/10;
 			this.size = this.initialSize
 			this.lighton = true;
@@ -15,8 +15,10 @@ class Light{
 			this.position.y = noise(t+50) * height
 			t+=0.005;
 			} else {
-			this.position.x = mouseX
-			this.position.y = mouseY
+				if (mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height){
+				this.position.x = mouseX
+				this.position.y = mouseY
+				}
 			}
 			this.size = this.initialSize * this.lighton
 		}
