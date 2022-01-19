@@ -15,7 +15,7 @@ class Light{
 			this.position.y = noise(t+50) * height
 			t+=0.005;
 			} else {
-				if (mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height){
+				if (mouseInCanvas()){
 				this.position.x = mouseX
 				this.position.y = mouseY
 				}
