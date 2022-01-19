@@ -3,7 +3,6 @@ let maxSpeed = 3;
 let minSpeed = 0.01;
 let boidShape = 'fish';
 let size = 6;
-// let fishFriendlyLight = false;
 
 class Boid {
 	constructor(){
