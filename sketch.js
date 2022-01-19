@@ -2,7 +2,7 @@ const flock = [];
 let t = 0;
 
 function setup() {
-	createCanvas(min(1000, windowWidth), min(windowHeight, 600));
+	createCanvas(min(1000, windowWidth), min(windowHeight*0.85, 600));
 	const nboid = width*height/10000
 	for (let i=0; i<nboid; i++){
 	flock.push(new Boid());}
