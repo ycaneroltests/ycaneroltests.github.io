@@ -11,8 +11,7 @@ class Boid {
 		this.velocity.setMag(random(0.5, 1.5))
 		this.acceleration = createVector();
 		this.size= size * random(1,2)
-		this.colors = [random(0, 255), random(0, 255), random(0, 255)]
-		this.colors = 0
+		this.colors = [random(50, 255), random(50, 255), random(50, 255)]
 	}
 
 	flock(boids){
@@ -64,8 +63,8 @@ class Boid {
 	show(){
 			noStroke()
 			let d = dist(this.position.x, this.position.y, light.position.x, light.position.y)
-			let color = this.colors
-			if (d < light.size){ color = 190}
+			let color = 0
+			if (d < light.size){ color = this.colors}
 			fill(color);
 			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
 			if (this.position.x < this.size * 3) {
