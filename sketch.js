@@ -11,10 +11,18 @@ function setup() {
 	randomMovementCheckbox = createCheckbox('Random movement', false);
 	randomMovementCheckbox.changed(toggleLightRandom);
 
+	boidShapeRadio = createRadio();
+	boidShapeRadio.option('fish');
+	boidShapeRadio.option('triangle');
+	boidShapeRadio.option('circle');
+	textAlign(CENTER);
+	boidShapeRadio.selected('fish')
 }
 
 function draw() {
 	background(0, 100, 240);
+
+	boidShape = boidShapeRadio.value();
 
 	light.update()
 	light.show()

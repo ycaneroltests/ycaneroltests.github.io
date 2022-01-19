@@ -1,7 +1,7 @@
 let maxForce = 1
 let maxSpeed = 3;
 let minSpeed = 0.01;
-let shape = 'fish';
+let boidShape = 'fish';
 let size = 6;
 
 class Boid {
@@ -73,27 +73,27 @@ class Boid {
 			let color = this.colors
 			if (d < light.size){ color = 190}
 			fill(color);
-			this.drawBoid(shape, this.position.x, this.position.y, this.velocity, this.size)
+			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
 			if (this.position.x < this.size * 3) {
-				this.drawBoid(shape, this.position.x+width, this.position.y, this.velocity, this.size)
+				this.drawBoid(boidShape, this.position.x+width, this.position.y, this.velocity, this.size)
 			} else {
 			if (this.position.x > width - this.size * 3) {
-				this.drawBoid(shape, this.position.x-width, this.position.y, this.velocity, this.size)
+				this.drawBoid(boidShape, this.position.x-width, this.position.y, this.velocity, this.size)
 				}
 			}
 			if (this.position.y < this.size * 3) {
-				this.drawBoid(shape, this.position.x, this.position.y+height, this.velocity, this.size)
+				this.drawBoid(boidShape, this.position.x, this.position.y+height, this.velocity, this.size)
 			} else {
 			if (this.position.y > width - this.size * 3) {
-				this.drawBoid(shape, this.position.x, this.position.y-height, this.velocity, this.size)
+				this.drawBoid(boidShape, this.position.x, this.position.y-height, this.velocity, this.size)
 				}
 			}
 		}
-	drawBoid(shape, posx, posy, vel, size){
-		if (shape=='triangle'){
+	drawBoid(boidShape, posx, posy, vel, size){
+		if (boidShape=='triangle'){
 			this.drawTriangle(posx, posy, vel, size)
 		} else{
-			if(shape == 'fish'){
+			if(boidShape == 'fish'){
 			this.drawFish(posx, posy, vel, size)
 			} else{
 				this.drawPoint(posx, posy, size)
@@ -106,7 +106,7 @@ class Boid {
 	drawPoint(posx, posy, size){
 		push();
 		translate(posx, posy);
-		point(0, 0, size)
+		ellipse(0, 0, size)
 		pop();
 
 	}
