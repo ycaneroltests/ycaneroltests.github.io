@@ -54,17 +54,11 @@ class Boid {
 		this.acceleration.add(avoidLight)
 	}
 
-
-	applyForce(){
-	}
-
 	isOffscreen(){ //Handling what happens at the edges
 			if (this.position.x > width-0){ this.position.x-=width}
 			if (this.position.y > height-0){ this.position.y-=height}
 			if (this.position.x < 0){this.position.x+=width}
 			if (this.position.y < 0){this.position.y+=height}
-
-
 		}
 
 	show(){

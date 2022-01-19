@@ -7,7 +7,7 @@ function setup() {
 	for (let i=0; i<nboid; i++){
 	flock.push(new Boid());}
 	light = new Light();
-	
+
 	randomMovementCheckbox = createCheckbox('Random movement', false);
 	randomMovementCheckbox.changed(toggleLightRandom);
 
@@ -39,17 +39,22 @@ function mouseInCanvas(){
 return	 (mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height)
 }
 
+// Built-in p5 function
 function mouseClicked(){
 	if (mouseInCanvas()){
 	light.lighton = !light.lighton;
 	}
 }
 
+// Built-in p5 function
+// for touchscreen
 function touches(){
 light.lighton = !light.lighton;
 
 }
 
+
+// Built-in p5 function
 function mouseWheel(event){
 	newLightSize = light.initialSize + event.delta;
 	if (newLightSize < 500 && newLightSize > 10 && mouseInCanvas()){

@@ -5,15 +5,16 @@ class Light{
 		constructor(){
 			this.position = createVector(random(width), random(height))
 			this.initialSize = width/10;
+			// Store size in a different variable to be able to toggle later
 			this.size = this.initialSize
 			this.lighton = true;
 		}
 
 		update(){
 			if (lightMovesRandomly){
-			this.position.x = noise(t) * width
-			this.position.y = noise(t+50) * height
-			t+=0.005;
+				this.position.x = noise(t) * width
+				this.position.y = noise(t+50) * height
+				t+=0.005;
 			} else {
 				if (mouseInCanvas()){
 				this.position.x = mouseX
