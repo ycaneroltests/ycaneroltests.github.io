@@ -36,7 +36,9 @@ function draw() {
 }
 
 function mouseClicked(){
+	if (mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height){
 	light.lighton = !light.lighton;
+	}
 }
 
 function touches(){
