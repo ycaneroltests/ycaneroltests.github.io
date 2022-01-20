@@ -51,6 +51,9 @@ return	 (mouseX > 0 && mouseY > 0 && mouseX < width && mouseY < height)
 function mouseClicked(){
 	if (mouseInCanvas()){
 	light.lighton = !light.lighton;
+		if (light.lighton && !lightMovesRandomly){
+			noCursor()
+		} else {cursor()}
 	}
 }
 
