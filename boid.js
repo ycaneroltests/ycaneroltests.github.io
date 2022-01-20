@@ -11,7 +11,7 @@ class Boid {
 		this.velocity.setMag(random(0.5, 1.5))
 		this.acceleration = createVector();
 		this.size= size * random(1,2)
-		this.colors = [random(50, 255), random(50, 255), random(50, 255)]
+		this.colors = [random(0, 255), random(0, 255), random(0, 255)]
 	}
 
 	flock(boids){
@@ -65,21 +65,28 @@ class Boid {
 	show(){
 			noStroke()
 			let d = dist(this.position.x, this.position.y, light.position.x, light.position.y)
-			let color = 0
-			if (d < light.size){
-				color = this.colors
-				let xoffset = (light.position.x - this.position.x)*0.1
-				let yoffset = (light.position.y - this.position.y)*0.1
-				fill(0);
-				this.drawBoid(boidShape, this.position.x - xoffset,
-										 this.position.y - yoffset,
-										 this.velocity, this.size*1.2);
-				fill(color)
-				this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
-			} else{
-				fill(0);
-				this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
-			}
+			let color = this.colors
+			let shadowx = light.position.x - this.position.x
+			let shadowy = light.position.y - this.position.y
+			let xoffset = shadowx*0.1
+			let yoffset = shadowy*0.1
+			let shadowToLight = light.size - sqrt(shadowx**2 + shadowy**2)
+			let shadowDropoff = map(shadowToLight, 100, -50, 255, 0)
+			let colorDropoff = map(light.size-d, light.size*0.8, -50, 255, 0, true)
+			// Draw the shadow
+			fill(0, shadowDropoff);
+			this.drawBoid(boidShape, this.position.x - xoffset,
+									 this.position.y - yoffset,
+									 this.velocity, this.size*1.2);
+			// Draw non-illuminated fish
+			fill(0)
+			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
+			
+			// Draw the fish color, with alpha value based on distance to light
+			// When the fish is far from the light, the non-illuminted version will be seen
+			fill(color[0], color[1], color[2], shadowDropoff)
+			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
+
 			if (this.position.x < this.size * 3) {
 				this.drawBoid(boidShape, this.position.x+width, this.position.y, this.velocity, this.size)
 			} else {
