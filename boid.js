@@ -81,12 +81,14 @@ class Boid {
 			// Draw non-illuminated fish
 			fill(0)
 			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
-			
+
 			// Draw the fish color, with alpha value based on distance to light
 			// When the fish is far from the light, the non-illuminted version will be seen
 			fill(color[0], color[1], color[2], shadowDropoff)
 			this.drawBoid(boidShape, this.position.x, this.position.y, this.velocity, this.size)
 
+			// Switch the fill back to black to handle wrapping
+			fill(0)
 			if (this.position.x < this.size * 3) {
 				this.drawBoid(boidShape, this.position.x+width, this.position.y, this.velocity, this.size)
 			} else {
