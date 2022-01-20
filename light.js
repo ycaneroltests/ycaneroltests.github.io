@@ -5,7 +5,7 @@ let fishFriendlyLight = false;
 class Light{
 		constructor(){
 			this.position = createVector(random(width), random(height))
-			this.initialSize = width/10;
+			this.initialSize = max(120, width/10);
 			// Store size in a different variable to be able to toggle later
 			this.size = this.initialSize
 			this.lighton = true;
