@@ -11,7 +11,8 @@ class Boid {
 		this.velocity.setMag(random(0.5, 1.5))
 		this.acceleration = createVector();
 		this.size= size * random(1,2)
-		this.colors = [random(0, 255), random(0, 255), random(0, 255)]
+		// Colors are in HSB space
+		this.colors = [random(0, 360), random(90, 100), random(90, 100)]
 	}
 
 	flock(boids){
@@ -71,8 +72,8 @@ class Boid {
 			let xoffset = shadowx*0.1
 			let yoffset = shadowy*0.1
 			let shadowToLight = light.size - sqrt(shadowx**2 + shadowy**2)
-			let shadowDropoff = map(shadowToLight, 100, -50, 255, 0)
-			let colorDropoff = map(light.size-d, light.size*0.8, -50, 255, 0, true)
+			let shadowDropoff = map(shadowToLight, 100, -50, 1, 0)
+			let colorDropoff = map(light.size-d, light.size*1.3, -50, 1, 0, true)
 			// Draw the shadow
 			fill(0, shadowDropoff);
 			this.drawBoid(boidShape, this.position.x - xoffset,

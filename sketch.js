@@ -24,7 +24,11 @@ function setup() {
 }
 
 function draw() {
-	background(0, 100, 240);
+	colorMode(RGB)
+	background(0, 140, 255);
+
+	// Use HSB for the rest
+	colorMode(HSB)
 
 	boidShape = boidShapeRadio.value();
 
