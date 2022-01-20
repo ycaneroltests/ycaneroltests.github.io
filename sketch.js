@@ -20,6 +20,7 @@ function setup() {
 	boidShapeRadio.option('circle');
 	textAlign(CENTER);
 	boidShapeRadio.selected('fish')
+	noCursor()
 }
 
 function draw() {
