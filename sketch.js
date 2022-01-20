@@ -75,8 +75,12 @@ function toggleLightRandom(){
 	if (this.checked()){
 		lightMovesRandomly = true;
 		light.lighton = true;
+		// Bring back the cursor if user is not controlling the light position
+		cursor()
 	} else {
 lightMovesRandomly = false;
+		// Remove cursor when user takes control of the light
+		noCursor()
 	}
 }
 
